@@ -1,0 +1,33 @@
+{
+  "realm": "govbridge",
+  "enabled": true,
+  "clients": [
+    {
+      "clientId": "govbridge-web",
+      "publicClient": true,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": ["http://localhost:3000/*"],
+      "webOrigins": ["http://localhost:3000"],
+      "protocol": "openid-connect",
+      "defaultRoles": ["citizen"]
+    },
+    {
+      "clientId": "govbridge-api",
+      "publicClient": false,
+      "secret": "govbridge-api-secret",
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "redirectUris": ["http://localhost:8000/*"]
+    }
+  ],
+  "roles": {
+    "realm": [
+      { "name": "citizen" },
+      { "name": "officer" },
+      { "name": "admin" }
+    ]
+  }
+}

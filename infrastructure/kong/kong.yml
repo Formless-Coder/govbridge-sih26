@@ -1,0 +1,17 @@
+_format_version: "3.0"
+services:
+  - name: govbridge-api
+    url: http://api:8000
+    routes:
+      - name: govbridge-api-route
+        paths:
+          - /api
+        strip_path: false
+plugins:
+  - name: jwt-keycloak
+    config:
+      uri_param_names:
+        - authorization
+      claims_to_verify:
+        - exp
+        - iss
